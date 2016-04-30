@@ -72,3 +72,10 @@
 * `objc_msgSend_fpret`用来返回浮点数
 * `objc_msgSendSuper`用来给超类发消息
 * 每个类里都有一张表格，选择子的名称为键，值为对应方法实现函数的指针
+
+12.理解消息转发机制
+
+* 若对象无法响应某个选择子，则进入消息转发流程
+* 通过运行期的动态方法解析功能，我们需要在用到某个方法时再将其加入类中（`resolveInstanceMethod:`）
+* 对象可以把其无法解读的某些选择子转交给其他对象来处理（`forwardingTargetForSelector:`）
+* 经过上述两步后，如果还是没办法处理选择子，就启动完整的消息转发机制（`forwardingInvocation:`）
