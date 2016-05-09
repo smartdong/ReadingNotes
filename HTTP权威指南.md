@@ -20,3 +20,6 @@
 * `URL`的第一部分（`http`）是`URL`方案（`scheme`），方案可以告知`Web`客户端怎样访问资源
 * `URL`的第二部分（`www.xxx.com`）指的是服务器位置，这部分告知`Web`客户端资源位于何处
 * `URL`的第三部分（`/xxx/xxx.html`）是资源路径，路径说明了请求的是服务器上哪个特定的本地资源
+
+2.`URL`的语法
+`<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>`
