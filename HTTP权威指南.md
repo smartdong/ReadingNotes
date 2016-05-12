@@ -23,5 +23,3 @@
 
 2.`URL`的语法  
 `<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>`
-  
- 
