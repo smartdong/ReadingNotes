@@ -26,7 +26,24 @@
 
 ######第三章 `HTTP`报文 
 
-1.状态码
+1.报文的组成部分
+
+* 对报文进行描述的起始行（`start line`）
+* 包含属性的首部（`header`）块
+* 可选的、包含数据的主体（`body`）部分
+
+2.报文的语法
+
+* 请求报文的格式  
+  `<method> <request url> <version>
+   <headers>
+   <entity-body>`
+* 响应报文的格式（只有起始行的语法有所不同）  
+  `<version> <status> <reason-phrase>
+   <headers>
+   <entity-body>`
+
+3.状态码
 
 * `100~199` 信息性状态码
  * `100 Continue` 说明收到了请求的初始部分，请客户端继续。发送了这个状态码之后，服务端在收到请求之后必须进行响应
