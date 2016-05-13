@@ -23,3 +23,11 @@
 
 2.`URL`的语法  
 `<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>`
+
+######第三章 `HTTP`报文 
+
+1.状态码
+
+* `100~199` 信息性状态码
+ * `100 Continue` 说明收到了请求的初始部分，请客户端继续。发送了这个状态码之后，服务端在收到请求之后必须进行响应
+ * `101 Switching Protocols` 说明服务器正在根据客户端的指定，将协议切换成`Update`首部所列的协议
