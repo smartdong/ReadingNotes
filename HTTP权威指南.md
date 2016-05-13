@@ -35,13 +35,13 @@
 2.报文的语法
 
 * 请求报文的格式  
-  `<method> <request url> <version>
-   <headers>
-   <entity-body>`
+  `<method> <request url> <version>`  
+  `<headers>`  
+  `<entity-body>`
 * 响应报文的格式（只有起始行的语法有所不同）  
-  `<version> <status> <reason-phrase>
-   <headers>
-   <entity-body>`
+  `<version> <status> <reason-phrase>`  
+  `<headers>`  
+  `<entity-body>`
 
 3.状态码
 
