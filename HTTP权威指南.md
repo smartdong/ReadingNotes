@@ -107,3 +107,20 @@
  * 内容首部
  * 实体缓存首部
 * 扩展首部：非标准首部，由应用程序开发者创建
+
+######第四章 连接管理
+
+1.`Connection`首部处理
+
+* `HTTP`应用程序收到一条带有`Connection`首部的报文时， 接收端会解析发送端请求的所有选项，并将其应用。然后会在将此报文转发给下一跳地址之前，删除`Connection`首部以及`Connection`中列出的所有首部。而且，可能还会有少量没有作为`Connection`首部值列出，但一定不能被代理转发的逐跳首部。其中包括`Proxy-Authenticate`、`Proxy-Connection`、`Transfer-Encoding`和`Upgrade`
+
+2.`Keep-Alive`连接的限制和规则
+
+* 在`HTTP/1.0`中，`Keep-Alive`并不是默认使用的。客户端必须发送一个`Connection : Keep-Alive`请求首部来激活`Keep-Alive`连接
+* `Connection : Keep-Alive`首部必须随所有希望保持持久连接的报文一起发送。如果客户端没有发送`Connection : Keep-Alive`首部，服务器就会在那条请求之后关闭连接
+* 通过检测响应中是否包含`Connection : Keep-Alive`响应首部，客户端可以判断服务器是否会在发出响应之后关闭连接
+* 只有在无需检测到连接的关闭即可确定报文实体主体部分长度的情况下，才能将连接保持在打开状态。也就是说实体的主体部分必须有正确的`Content-Length`，在一条`Keep-Alive`信道中回送错误的`Content-Length`是很糟糕的事情，这样事务处理的另一端就无法精确的检测出一条报文的结束和另一条报文的开始
+* 代理和网关必须执行`Connection`首部的规则，必须在将报文转发出去或将其高速缓存之前，删除在`Connection`首部中命名的所有首部字段以及`Connection`首部自身
+* 严格来说，不应该与无法确定是否支持`Connection`首部的代理服务器建立`Keep-Alive`连接，以防出现哑代理问题
+* 从技术上来说，应该忽略所有来自`HTTP/1.0`设备的`Connection`首部字段（包括`Connection : Keep-Alive`），因为它们可能是由比较老的代理服务器误转发的
+* 除非重复发送请求会产生其他一些副作用，否则如果在客户端收到完整的响应之前连接就关闭了，客户端就一定要做好重试请求的准备
