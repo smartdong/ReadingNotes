@@ -306,9 +306,18 @@
 ######`cookie`
 
 * `cookie`的类型
- * 会话`cookie`
- * 持久`cookie`
-* 
+ * 会话`cookie`（临时，退出浏览器就被删除）
+ * 持久`cookie`（存储在硬盘上，有过期时间）
+* `cookie`是如何工作的
+ * `cookie`中包含了一组（`name = value`）的值
+ * 通过`Set-Cookie`或`Set-Cookie2`首部发送给服务器
+* 不同站点使用不同的`cookie`
+ * `cookie`的域属性（针对某站点使用）
+ * `cookie`的路径属性（针对某路径使用）
+* `cookie`缓存的指导性规则
+ * 如果无法缓存文档，要将其标识出来（除了`Set-Cookie`首部可缓存：`Cache-Control:no-cache="Set-Cookie"`，或对可缓存的文档：`Cache-Control:public`）
+ * 缓存`Set-Cookie`首部时要小心（使用`Cache-Control:must-revalidate,max-age=0`来强制缓存与原始服务器重新验证每条请求，并将`Set-Cookie`首部合并到客户端响应中）
+ * 小心处理带有`cookie`首部的请求（缓存带有`cookie`首部的图片，过期时间设为零，强制每次都进行再验证）
 
 #####第12章 基本认证机制
 ######
