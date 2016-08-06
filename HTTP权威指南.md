@@ -320,7 +320,33 @@
  * 小心处理带有`cookie`首部的请求（缓存带有`cookie`首部的图片，过期时间设为零，强制每次都进行再验证）
 
 #####第12章 基本认证机制
-######
+######认证协议与首部
+
+* 质询：`www-Authenticate`（没有认证信息 请求方法`GET` 返回`401 Unauthorized`）
+* 授权：`Authorization`（重新发送并带有`Authorization`首部 请求方法`Get`）
+* 成功：`Authentication-Info`（如果授权证书正确则正常返回 `200 OK`）
+
+######基本认证
+
+* 请求资源
+* 回送`401 Authorization Required`，同时回送`www-Authenticate`
+* 弹出对话框，请求输入用户名密码
+* 将用户名密码用冒号连接起来，并用`Base64`转换，然后放入`Authorization`首部回送
+* 服务器解码，验证是否正确，返回`HTTP 200 OK`
+
+######代理认证首部
+
+* `Unauthorized status code : 407`（此项说明返回码不同，正常为401）
+* `Proxy-Authenticate`
+* `Proxy-Authorization`
+* `Proxy-Authentication-Info`
+
+######基本认证的安全缺陷
+
+* 密码明文传输
+* 用户名密码被截获，用于重复请求此接口或其他接口
+* 用户名密码被截获，被撞库攻击其他网站
+* 容易被钓鱼服务器骗取用户名密码
 
 #####第13章 摘要认证
 ######
