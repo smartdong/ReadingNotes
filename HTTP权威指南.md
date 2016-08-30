@@ -502,6 +502,7 @@
 
 * `Content-Type`首部字段说明了实体主体的`MIME`类型
 * `MIME`类型是标准化的名字，用以说明实体的基本媒体类型
+* `Content-Type`首部还支持可选的参数来进一步说明内容的类型，比如`charset`参数（`Content-Type：text/html; charset=iso-8859-4`）
 
 #####第16章 国际化
 ######
