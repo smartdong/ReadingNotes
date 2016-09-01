@@ -510,6 +510,10 @@
  * 网站服务器生成原始响应报文，其中有原始的`Content-Type`和`Content-Length`首部
  * 内容编码服务器（可能是原始服务器或代理）创建编码后的报文。编码后的报文有同样的`Content-Type`但`Content-Length`可能不同（被压缩）。内容编码服务器在编码后的报文中增加`Content-Encoding`首部，这样接收的应用程序就可以进行解码了
  * 接收程序得到编码后的报文，进行解码，获得原始报文
+* 内容编码类型
+ * `Content-Encoding`首部是用标准化的代号来说明编码时使用的算法（如`gzip`、`compress`等）
+ * 客户端使用`Accept-Encoding`首部通知服务器自己支持的编码类型
+ * 如果客户端请求中没有包含`Accept-Encoding`首部，服务器假设客户端能够接受任何编码方式（等同于发送`Accept-Encoding：*`）
 
 #####第16章 国际化
 ######
