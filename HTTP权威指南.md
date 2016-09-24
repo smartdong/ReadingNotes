@@ -740,4 +740,4 @@
 * `timestamp` 请求的日期和时间
 * `request-line` 精确的`HTTP`请求行文本（`GET /index.html HTTP/1.1`）
 * `response-code` 响应中返回的`HTTP`状态码
-* `response-size` 响应主体中的`Content-Length`，如果响应中没有返回主体，就记录`0`
+* `response-size` 响应主体中的`Content-Length`，如果响应中没有返回主体，就记录`0` 
