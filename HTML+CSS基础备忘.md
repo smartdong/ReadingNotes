@@ -33,13 +33,14 @@
 * `<input>`输入框 
     * `name`控件名称 
     * `value`提交到服务器的值
-    * `type="text"`文本输入框
-    * `type="password"`密码输入框
-    * `type="radio"`单选框
-    * `type="checkbox"`复选框
-    * 当`type="radio/checkbox"`时 一组控件名称要一致 `checked="checked"`被选中
-    * `type="submit"`提交按钮(`value`按钮上显示的文字)
-    * `type="reset"`重置按钮(`value`按钮上显示的文字)
+    * `type`
+        * `text`文本输入框
+        * `password`密码输入框
+        * `radio`单选框
+        * `checkbox`复选框
+        * 注意: `radio/checkbox` 一组控件名称要一致 `checked="checked"`被选中
+        * `submit`提交按钮(`value`按钮上显示的文字)
+        * `reset`重置按钮(`value`按钮上显示的文字)
 * `<textarea>`文本域 例:`<textarea rows="行数" cols="列数">文本</textarea>`
 * `<select>`下拉列表框
     * `multiple="mulpitle"`多选 
@@ -91,18 +92,41 @@
     * 元素的高度、宽度、行高以及顶和底边距都可设置
     * 元素宽度在不设置的情况下 是它本身父容器的`100%`（和父元素的宽度一致）
     * `display:block`将元素显示为块级元素
-    * `常用的块状元素` `<div>` `<p>` `<hx>` `<ol>` `<ul>` `<dl>` `<table>` `<address>` `<blockquote>` `<form>`
+    * 常用的块状元素 
+        * `<div>`
+        * `<p>`
+        * `<hx>`
+        * `<ol>`
+        * `<ul>`
+        * `<dl>`
+        * `<table>`
+        * `<address>`
+        * `<blockquote>`
+        * `<form>`
 * `内联元素`
     * 和其他元素都在一行上
     * 元素的高度、宽度及顶部和底部边距不可设置
     * 元素的宽度就是它包含的文字或图片的宽度 不可改变
     * `display:inline`将元素设置为内联元素
-    * `常用的内联元素` `<a>` `<span>` `<br>` `<i>` `<em>` `<strong>` `<label>` `<q>` `<var>` `<cite>` `<code>`
+    * 常用的内联元素
+        * `<a>`
+        * `<span>`
+        * `<br>`
+        * `<i>`
+        * `<em>`
+        * `<strong>`
+        * `<label>`
+        * `<q>`
+        * `<var>`
+        * `<cite>`
+        * `<code>`
 * `内联块状元素` 
     * 和其他元素都在一行上
     * 元素的高度、宽度、行高以及顶和底边距都可设置
     * `display:inline-block`将元素设置为内联块状元素
-    * `常用的内联块状元素` `<img>` `<input>`
+    * 常用的内联块状元素
+        * `<img>`
+        * `<input>`
 * `盒模型`
     * `border-width`边框宽度 `1px` `thin` `medium` `thick`
     * `border-style`边框样式 `dashed` `dotted` `solid`
@@ -117,7 +141,10 @@
 * `布局模型`
     * `Flow`流动模型 从上到下 从左到右
     * `Float`浮动模型 `float`属性实现浮动
-    * `Layer`层模型 `position:absolute/relative/fixed`绝对定位/相对定位/固定定位
+    * `Layer`层模型 
+        * `position:absolute` 绝对定位
+        * `position:relative` 相对定位
+        * `position:fixed` 固定定位
     * 参照前辈元素定位 需要对被参照的元素设置`position:relative;` 然后对需要定位的元素设置`position:absolute;`
 * `颜色设置方式`
     * `color:red;`
@@ -127,10 +154,15 @@
 * `水平居中设置`
     * 行内元素`text-align:center;`
     * 定宽块状元素`margin:20px auto;`
-    * 不定宽块状元素`1.加入table标签` `2.改变块级元素的display为inline类型 再参照行内元素设置` `3.通过给父元素设置float 然后给父元素设置position:relative和left:50% 子元素设置position:relative和left:-50%`
+    * 不定宽块状元素
+        * `加入table标签` 
+        * `改变块级元素的display为inline类型 再参照行内元素设置` 
+        * `通过给父元素设置float 然后给父元素设置position:relative和left:50% 子元素设置position:relative和left:-50%`
 * `垂直居中设置`
     * 父元素高度确定的单行文本`设置父元素的height和line-height高度一致`
-    * 父元素高度确定的多行文本`1.使用插入table (包括tbody、tr、td)标签 同时设置vertical-align：middle` `2.在chrome、firefox及IE8以上的浏览器下可以设置块级元素的display为table-cell（设置为表格单元显示）激活vertical-align属性`
+    * 父元素高度确定的多行文本 
+        * `使用插入table (包括tbody、tr、td)标签 同时设置vertical-align：middle` 
+        * `在chrome、firefox及IE8以上的浏览器下可以设置块级元素的display为table-cell（设置为表格单元显示）激活vertical-align属性`
 * `隐性改变display类型（自动变为display:inline-block）`
     * `position:absolute`
     * `float:left 或 float:right`
