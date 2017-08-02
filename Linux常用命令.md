@@ -53,6 +53,9 @@
 * 查看进程
     * `ps aux | grep java` 查看`java`进程
     * `ps aux` 查看所有进程
+* 查看内存
+    * `cat /proc/meminfo` 查看机器的内存使用信息
+    * `cat /proc/pid/statm` 查看进程所占用的内存
 * 以树状图列出目录的内容
     * `tree a`
 * 文件下载
